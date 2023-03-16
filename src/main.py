@@ -32,7 +32,7 @@ entry.insert(0, os.getcwd() + '/include/Li_ion_battery_figure.xlsx')
 
 timeEntries = []
 
-for i in range(27):
+for i in range(28):
     timeEntries.append(tk.Entry(window, width = 5))
     timeEntries[i].grid(row = i + 5, column = 2, padx = 10, pady = 1)
 
