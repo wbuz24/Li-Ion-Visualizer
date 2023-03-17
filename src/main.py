@@ -4,26 +4,24 @@ import pandas as pd
 import tkinter as tk
 import os
 
-
-
 def csvread():
     global df, x, y, z
-    filePath = entry.get() # grabs filepath from input box
-    df = pd.read_excel(filePath)
-    z = df['Year']
+    filePath = entry.get()       # grabs filepath from input box
+    df = pd.read_excel(filePath) # stores data in a dataframe
+    z = df['Year']               # creates axes
     x = df['Wh/kg']
     y = df['W/kg']
     for i in range(df.shape[0]):
         if (i > 0 and z[i - 1] != z[i]):
-            curr_year = tk.Label(window, text = z[i])
+            curr_year = tk.Label(window, text = z[i]) # prints year in window
             curr_year.grid(row = i + 5, column = 2, padx = 2, pady = 1)
     #    curr_power = tk.Label(window, text = x[i])
     #    curr_power.grid(row = i + 5, column = 3, padx = 10, pady = 1)
     #    curr_energy = tk.Label(window, text = y[i])
     #    curr_energy.grid(row = i + 5, column = 4, padx = 10, pady = 1)
 
-    graphButton.grid(row = 20, column = 15, pady = 1)
-def ragoneGraph():
+    graphButton.grid(row = 20, column = 15, pady = 1) 
+def ragoneGraph(): # 
     ax = plt.figure().gca(projection='3d')
     ax.scatter(z, x, y)
     plt.show()
