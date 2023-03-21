@@ -38,7 +38,7 @@ def ragoneGraph(): #
     B = ax.scatter(df.loc[5:33,"Wh/kg"], df.loc[5:33,"Year"], df.loc[5:33,"W/kg"], color = "red", marker = ".", depthshade = False)
     C = ax.scatter(df.loc[34:42,"Wh/kg"], df.loc[34:42,"Year"], df.loc[34:42,"W/kg"], color = "black", marker = ".", depthshade = False)
     D = ax.scatter(df.loc[43:65,"Wh/kg"], df.loc[43:65,"Year"], df.loc[43:65,"W/kg"], color = "green", marker = ".", depthshade = False)
-    E = ax.scatter(df.loc[66,"Wh/kg"], df.loc[66,"Year"], df.loc[66,"W/kg"], color = "orange", marker = "*", depthshade = False)
+    E = ax.scatter(df.loc[66,"Wh/kg"], df.loc[66,"Year"], df.loc[66,"W/kg"], color = "orange", marker = "*", depthshade = False, s = 40)
     
 
     plt.title("Evolution of Li-ion Energy and Power Density", fontweight='bold')
