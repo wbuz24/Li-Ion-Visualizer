@@ -39,6 +39,7 @@ def ragoneGraph(): #
     C = ax.scatter(df.loc[34:42,"Wh/kg"], df.loc[34:42,"Year"], df.loc[34:42,"W/kg"], color = "black", marker = ".", depthshade = False)
     D = ax.scatter(df.loc[43:65,"Wh/kg"], df.loc[43:65,"Year"], df.loc[43:65,"W/kg"], color = "green", marker = ".", depthshade = False)
     E = ax.scatter(df.loc[66,"Wh/kg"], df.loc[66,"Year"], df.loc[66,"W/kg"], color = "orange", marker = "*", depthshade = False, s = 40)
+   
     
 
     plt.title("Evolution of Li-ion Energy and Power Density", fontweight='bold')
@@ -52,15 +53,15 @@ def ragoneGraph(): #
     cursor = mplcursors.cursor(hover=True)
     @cursor.connect("add")
     def on_add(sel):
-        sel.annotation.set(text=tt[sel.index])
-
-        temp = str(sel.artist)
-        Str = temp[55:]
-        Str = Str[:-1]
-        print(Str)
+        if hex(id(A)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index, "Year"]) + ", " + str(df.loc[sel.index, "W/kg"]) + " W/kg, " + str(df.loc[sel.index, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
+        if hex(id(B)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index + 5, "Year"]) + ", " + str(df.loc[sel.index + 5, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 5, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
+        if hex(id(C)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index + 34, "Year"]) + ", " + str(df.loc[sel.index + 34, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 34, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
+        if hex(id(D)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index + 42, "Year"]) + ", " + str(df.loc[sel.index + 42, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 42, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
         
-        
-
     plt.show()
 
 
