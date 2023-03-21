@@ -38,7 +38,8 @@ def ragoneGraph(): #
     B = ax.scatter(df.loc[5:33,"Wh/kg"], df.loc[5:33,"Year"], df.loc[5:33,"W/kg"], color = "red", marker = ".", depthshade = False)
     C = ax.scatter(df.loc[34:42,"Wh/kg"], df.loc[34:42,"Year"], df.loc[34:42,"W/kg"], color = "black", marker = ".", depthshade = False)
     D = ax.scatter(df.loc[43:65,"Wh/kg"], df.loc[43:65,"Year"], df.loc[43:65,"W/kg"], color = "green", marker = ".", depthshade = False)
-    #ax.scatter(df.loc[84:97,"Wh/kg"], df.loc[84:97,"Year"], df.loc[84:97,"W/kg"], color = "orange", marker = ".", depthshade = False)
+    E = ax.scatter(df.loc[66,"Wh/kg"], df.loc[66,"Year"], df.loc[66,"W/kg"], color = "orange", marker = "*", depthshade = False, s = 40)
+   
     
 
     plt.title("Evolution of Li-ion Energy and Power Density", fontweight='bold')
@@ -49,17 +50,18 @@ def ragoneGraph(): #
     plt.locator_params(axis="both", integer=True, tight=True)
 
     
-    #cursor = mplcursors.cursor(hover=True)
-    #@cursor.connect("add")
-    #def on_add(sel):
-        #sel.annotation.set(text=tt[sel.index])
-
-        #temp = str(sel.artist)
-        #str = temp[55:]
-        #Right(str, LEN(str) - 1)
+    cursor = mplcursors.cursor(hover=True)
+    @cursor.connect("add")
+    def on_add(sel):
+        if hex(id(A)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index, "Year"]) + ", " + str(df.loc[sel.index, "W/kg"]) + " W/kg, " + str(df.loc[sel.index, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
+        if hex(id(B)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index + 5, "Year"]) + ", " + str(df.loc[sel.index + 5, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 5, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
+        if hex(id(C)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index + 34, "Year"]) + ", " + str(df.loc[sel.index + 34, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 34, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
+        if hex(id(D)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index + 42, "Year"]) + ", " + str(df.loc[sel.index + 42, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 42, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
         
-        
-
     plt.show()
 
 
