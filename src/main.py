@@ -38,7 +38,7 @@ def ragoneGraph(): #
     B = ax.scatter(df.loc[5:33,"Wh/kg"], df.loc[5:33,"Year"], df.loc[5:33,"W/kg"], color = "red", marker = ".", depthshade = False)
     C = ax.scatter(df.loc[34:42,"Wh/kg"], df.loc[34:42,"Year"], df.loc[34:42,"W/kg"], color = "black", marker = ".", depthshade = False)
     D = ax.scatter(df.loc[43:65,"Wh/kg"], df.loc[43:65,"Year"], df.loc[43:65,"W/kg"], color = "green", marker = ".", depthshade = False)
-    #ax.scatter(df.loc[84:97,"Wh/kg"], df.loc[84:97,"Year"], df.loc[84:97,"W/kg"], color = "orange", marker = ".", depthshade = False)
+    E = ax.scatter(df.loc[66,"Wh/kg"], df.loc[66,"Year"], df.loc[66,"W/kg"], color = "orange", marker = "*", depthshade = False)
     
 
     plt.title("Evolution of Li-ion Energy and Power Density", fontweight='bold')
@@ -49,14 +49,15 @@ def ragoneGraph(): #
     plt.locator_params(axis="both", integer=True, tight=True)
 
     
-    #cursor = mplcursors.cursor(hover=True)
-    #@cursor.connect("add")
-    #def on_add(sel):
-        #sel.annotation.set(text=tt[sel.index])
+    cursor = mplcursors.cursor(hover=True)
+    @cursor.connect("add")
+    def on_add(sel):
+        sel.annotation.set(text=tt[sel.index])
 
-        #temp = str(sel.artist)
-        #str = temp[55:]
-        #Right(str, LEN(str) - 1)
+        temp = str(sel.artist)
+        Str = temp[55:]
+        Str = Str[:-1]
+        print(Str)
         
         
 
