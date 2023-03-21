@@ -72,7 +72,7 @@ window.title("Li-Ion Visualizer")
 # initialize an entry box
 entry = tk.Entry(window, width = 20)
 entry.grid(row = 2, column = 15, padx = (20, 0), pady = 1)
-entry.insert(0, '/Users/thomasdonahue/Desktop/Classes/Research/Li-Ion-Visualizer/include/Li_ion_battery_figure.xlsx')
+entry.insert(0, '../Li-Ion-Visualizer/include/Li_ion_battery_figure.xlsx')
 
 # create an import button 
 import_button = tk.Button(window, text = "Import", command = csvread)
