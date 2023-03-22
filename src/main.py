@@ -46,7 +46,8 @@ def ragoneGraph(): #
             sel.annotation.set(text=str(df.loc[sel.index + 34, "Year"]) + ", " + str(df.loc[sel.index + 34, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 34, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
         if hex(id(D)) == str(sel.artist)[55:][:-1]:
             sel.annotation.set(text=str(df.loc[sel.index + 42, "Year"]) + ", " + str(df.loc[sel.index + 42, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 42, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
-        
+        if hex(id(E)) == str(sel.artist)[55:][:-1]:
+            sel.annotation.set(text=str(df.loc[sel.index + 66, "Year"]) + ", " + str(df.loc[sel.index + 66, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 66, "Wh/kg"]) + " Wh/kg")
     plt.show()
 
 # initialize a window
