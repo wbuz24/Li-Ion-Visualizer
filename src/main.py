@@ -26,11 +26,14 @@ def ragoneGraph(): #
     E = ax.scatter(df.loc[66,"Wh/kg"], df.loc[66,"Year"], df.loc[66,"W/kg"], color = "orange", marker = "*", depthshade = False, s = 40)
 
     plt.title("Evolution of Li-ion Energy and Power Density", fontweight='bold')
+    
     ax.set_xlabel('Energy Density (Wh/kg)', fontweight='bold')
     ax.set_ylabel('Year', fontweight='bold')
     ax.set_zlabel('Power Density (W/kg)', fontweight='bold')
-
+    ax.tick_params(axis='both', which='major', labelsize=7)
     plt.locator_params(axis="both", integer=True, tight=True)
+    plt.yticks([1999, 2002, 2005, 2008, 2011, 2014, 2017, 2020, 2023, 2026])
+    plt.xticks([0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
     
     cursor = mplcursors.cursor(hover=True)
     @cursor.connect("add")
