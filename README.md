@@ -1,5 +1,5 @@
 # Li-Ion-Visualizer
-UTK Li-ion visualiser tool
+UTK Li-ion visualizer tool
 
 This tool was created under the mentorship of Dr. Doug Aaron and Dr. Matthew Mench
  - Designed by Preetam Sharma and Anirban Roy
