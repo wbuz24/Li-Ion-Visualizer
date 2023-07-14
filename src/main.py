@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import mpld3
 import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
@@ -9,11 +10,11 @@ import os
 
 def csvread():
     global df, tt
-    filePath = entry.get()       # grabs filepath from input box
+    filePath = "/Users/thomasdonahue/Desktop/Classes/Research/Li-Ion-Visualizer/include/Li_ion_battery_figure.xlsx" #entry.get()       # grabs filepath from input box
     df = pd.read_excel(filePath) # stores data in a dataframe
     tt = df["Year"].values
     
-    graphButton.grid(row = 4, column = 15, pady = 1) 
+    #graphButton.grid(row = 4, column = 15, pady = 1) 
 
 def ragoneGraph(): # 
     fig = plt.figure(figsize = (10, 7))
@@ -48,22 +49,25 @@ def ragoneGraph(): #
             sel.annotation.set(text=str(df.loc[sel.index + 42, "Year"]) + ", " + str(df.loc[sel.index + 42, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 42, "Wh/kg"]) + " Wh/kg" + "\n" + str(df.loc[sel.index, "Reference"]))
         if hex(id(E)) == str(sel.artist)[55:][:-1]:
             sel.annotation.set(text=str(df.loc[sel.index + 66, "Year"]) + ", " + str(df.loc[sel.index + 66, "W/kg"]) + " W/kg, " + str(df.loc[sel.index + 66, "Wh/kg"]) + " Wh/kg")
-    plt.show()
+    #plt.show()
+    mpld3.show()
 
-# initialize a window
-window = tk.Tk()
-window.geometry("500x500")
-window.title("Li-Ion Visualizer")
+csvread()
+ragoneGraph()
+### initialize a window
+##window = tk.Tk()
+##window.geometry("500x500")
+##window.title("Li-Ion Visualizer")
+##
+### initialize an entry box
+##entry = tk.Entry(window, width = 20)
+##entry.grid(row = 2, column = 15, padx = (20, 0), pady = (220, 0))
+##entry.insert(0, '../Li-Ion-Visualizer/include/Li_ion_battery_figure.xlsx')
+##
+### create an import button 
+##import_button = tk.Button(window, text = "Import", command = csvread)
+##import_button.grid(row = 2, column = 5, padx = (170, 0), pady = (220, 0))
+##
+##graphButton = tk.Button(window, width = 5, text = "Graph", command = ragoneGraph)
 
-# initialize an entry box
-entry = tk.Entry(window, width = 20)
-entry.grid(row = 2, column = 15, padx = (20, 0), pady = (220, 0))
-entry.insert(0, '../Li-Ion-Visualizer/include/Li_ion_battery_figure.xlsx')
-
-# create an import button 
-import_button = tk.Button(window, text = "Import", command = csvread)
-import_button.grid(row = 2, column = 5, padx = (170, 0), pady = (220, 0))
-
-graphButton = tk.Button(window, width = 5, text = "Graph", command = ragoneGraph)
-
-window.mainloop()
+#window.mainloop()
