@@ -13,5 +13,9 @@ This tool currently runs through an html webpage. The html page (html/chart.html
 
  ## Workflow
  - The src/main.py python script will generate the html/chart.html file
+ ```
+ python3 src/main.py
+ ```
  - The html/index.html file uses the figure generated with html/chart.html and places it within an iframe 
  - placing the index.html into your webbrowser will display the interactive 3d chart
+
