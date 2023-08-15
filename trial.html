@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <title>PyScript Hello World</title>
+
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link
+            rel="stylesheet"
+            href="https://pyscript.net/latest/pyscript.css"
+        />
+        <link rel="stylesheet" href="./assets/css/examples.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+
+    <body>
+        <!--<nav class="navbar" style="background-color: #000000">
+            <div class="app-header">
+                <a href="/">
+                    <img src="./logo.png" class="logo" />
+                </a>
+                <a class="title" href="" style="color: #f0ab3c">Hello World</a>
+            </div>
+        </nav> -->
+
+        <py-tutor>
+            <py-config>
+                packages = ["plotly", "pandas"]
+                plugins = [
+                  "https://pyscript.net/latest/plugins/python/py_tutor.py"
+                ]
+            </py-config>
+
+            <section class="pyscript">
+                <py-script>
+                    display("Starting my code")
+                    import plotly.express as px
+                    import pandas as pd
+                    import os
+                    import numpy as np
+
+                    filepath1 = os.getcwd()
+                    filePath = {"key1": 1, "key1": 2, "key1": 3}
+                    d = dict( A = np.array([1,2]), B = np.array([1,2,3,4]) )
+
+                    df = pd.DataFrame(np.random.randint(0,10, size=(64,6)), columns = ["Year", "Specific Energy (Wh/kg)", "Specific Power (W/kg)", "Reference", "Comments", "Color"])
+                    display(df)
+
+                    fig = px.scatter_3d(df, x='Year', y='Specific Energy (Wh/kg)', z='Specific Power (W/kg)',
+                                  color='Color', hover_data={'Year': True, 'Specific Energy (Wh/kg)': True, 'Specific Power (W/kg)': True, 'Color': False})
+                    fig.update_layout(showlegend=False)
+                    fig.write_html("chart.html")
+                    display("End of execution")
+                    
+                </py-script>
+            </section>
+        </py-tutor>
+    </body>
+</html>
