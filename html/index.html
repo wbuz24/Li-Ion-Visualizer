@@ -8,8 +8,54 @@
         text-align: center;
       }
     </style>
+    
   </head>
   <body>
+    <p id="demo" onclick="myFunction()">Click me.</p>
+    <script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+    }
+    </script>
+              
+  
+   
+
+    <section class="pyscript">
+        <div id="mpl"></div>
+
+        
+
+        <py-tutor>
+            <py-config>
+                - pandas
+                - plotly.express
+                plugins = [
+                  "https://pyscript.net/latest/plugins/python/py_tutor.py"
+                ] 
+            </py-config>
+            <script type="py">
+                import plotly.express as px
+                import pandas as pd
+
+
+                filePath = "../Li-Ion-Visualizer/include/Li_ion_battery_figure.xlsx" 
+
+                df = pd.read_excel(filePath)
+                print(df)
+
+                fig = px.scatter_3d(df, x='Year', y='Specific Energy (Wh/kg)', z='Specific Power (W/kg)',
+                              color='Color', hover_data={'Year': True, 'Specific Energy (Wh/kg)': True, 'Specific Power (W/kg)': True, 'Color': False})
+                fig.update_layout(showlegend=False)
+                fig.write_html("../Li-Ion-Visualizer/html/chart.html")
+                </py-script>
+             </script>
+        </py-tutor>
+    </section>
+      
+    
+    </script>
+
     <div>
       <iframe
         id="serviceFrameSend"
@@ -21,5 +67,6 @@
       >
       </iframe>
     </div>
+    
   </body>
 </html>
