@@ -2,6 +2,7 @@
 <html>
   <head>
     <style>
+        h1 {text-align: center;}
         .box1 {
             background-color: lightgrey;
             width: 300px;
@@ -13,35 +14,65 @@
         
         .box2 {
             background-color: lightgrey;
-            width: 300px;
+            width: 100px;
             border: 5px solid red;
             padding: 50px;
-            margin: 20px;
+            margin: 50px;
         }
         
-        .dot {
+        .dot1 {
             height: 15px;
             width: 15px;
             background-color: royalblue;
             border-radius: 50%;
             display: inline-block;
         }
+        .dot2 {
+            height: 15px;
+            width: 15px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+         }
+        .dot3 {
+            height: 15px;
+            width: 15px;
+            background-color: #0BDA51;
+            border-radius: 50%;
+            display: inline-block;
+         }
+        .dot4 {
+            height: 15px;
+            width: 15px;
+            background-color: orange;
+            border-radius: 50%;
+            display: inline-block;
+         }
+        .dot5 {
+            height: 15px;
+            width: 15px;
+            background-color: cyan;
+            border-radius: 50%;
+            display: inline-block;
+         }
     </style>
 
-    <title>3D Ragone Plot</title>
-    <style>
-      .message {
-        font-size: 13em;
-        text-align: center;
-      }
-    </style>
-    
+    <title>3D Ragone Plot</title> 
     
   </head>
   <body>
     
     <h1 text-align: center>3D Ragone Plot</h1>
-    
+    <iframe
+        id="serviceFrameSend"
+        width="700"
+        height="600"
+        frameborder="0"
+        scrolling="no"
+        src="chart.html"
+      >
+    </iframe>
+
               
     <div class="box1">
         
@@ -53,19 +84,16 @@
         <input type="submit" value="Submit">
     </div>
 
-      <iframe
-        id="serviceFrameSend"
-        width="700"
-        height="600"
-        frameborder="0"
-        scrolling="no"
-        src="chart.html"
-      >
-      </iframe>
     <div class="box2">
         <h2>Legend: </h2>
         <label for="2000">2000:</label>
-        <span class="dot"></span>
+        <span class="dot1"></span>
+        <label for="2015">2015:</label>
+        <span class="dot2"></span>
+        <label for="2020">2020:</label>
+        <span class="dot3"></span>
+        <label for="2022">2022:</label>
+        <span class="dot4"></span>
     </div>
     
   </body>

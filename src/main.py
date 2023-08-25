@@ -17,7 +17,7 @@ def update_point(trace, points, selector):
             scatter.marker.color = c
             scatter.marker.size = s
 
-scatter.on_click(update_point)
+#scatter.on_click(update_point)
 
 fig = px.scatter_3d(df, x='Year', y='Specific Energy (Wh/kg)', z='Specific Power (W/kg)',
               color='Color', hover_data={'Year': True, 'Specific Energy (Wh/kg)': True, 'Specific Power (W/kg)': True, 'Color': False})
