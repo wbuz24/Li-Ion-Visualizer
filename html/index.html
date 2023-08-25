@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chart</title>
+    <style>
+        div {
+            background-color: lightgrey;
+            width: 300px;
+            border: 5px solid green;
+            padding: 50px;
+            margin: 20px;
+            float: right;
+        }
+
+        
+    </style>
+
+    <title>3D Ragone Plot</title>
     <style>
       .message {
         font-size: 13em;
@@ -9,54 +22,23 @@
       }
     </style>
     
+    
   </head>
   <body>
-    <p id="demo" onclick="myFunction()">Click me.</p>
-    <script>
-    function myFunction() {
-        document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
-    }
-    </script>
-              
-  
-   
-
-    <section class="pyscript">
-        <div id="mpl"></div>
-
-        
-
-        <py-tutor>
-            <py-config>
-                - pandas
-                - plotly.express
-                plugins = [
-                  "https://pyscript.net/latest/plugins/python/py_tutor.py"
-                ] 
-            </py-config>
-            <script type="py">
-                import plotly.express as px
-                import pandas as pd
-
-
-                filePath = "../Li-Ion-Visualizer/include/Li_ion_battery_figure.xlsx" 
-
-                df = pd.read_excel(filePath)
-                print(df)
-
-                fig = px.scatter_3d(df, x='Year', y='Specific Energy (Wh/kg)', z='Specific Power (W/kg)',
-                              color='Color', hover_data={'Year': True, 'Specific Energy (Wh/kg)': True, 'Specific Power (W/kg)': True, 'Color': False})
-                fig.update_layout(showlegend=False)
-                fig.write_html("../Li-Ion-Visualizer/html/chart.html")
-                </py-script>
-             </script>
-        </py-tutor>
-    </section>
-      
     
-    </script>
-
+    <h1 text-align: center>3D Ragone Plot</h1>
+    
+              
     <div>
+        
+        <h2>Data Submission Form</h2>
+        <label for="fname">Name:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="lname">Email:</label>
+        <input type="text" id="lname" name="lname"><br><br>
+        <input type="submit" value="Submit">
+    </div>
+
       <iframe
         id="serviceFrameSend"
         width="700"
@@ -66,7 +48,7 @@
         src="chart.html"
       >
       </iframe>
-    </div>
+    
     
   </body>
 </html>
