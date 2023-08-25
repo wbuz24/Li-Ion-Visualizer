@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html> <!-- begin html document-->
+  <head> <!-- begin header-->
     <style>
+      
         h1 {text-align: center;}
+        
         .box1 {
             background-color: lightgrey;
             width: 300px;
@@ -55,14 +57,14 @@
             border-radius: 50%;
             display: inline-block;
          }
-    </style>
+    </style> <!-- css class definitions-->
 
-    <title>3D Ragone Plot</title> 
+    <title>3D Ragone Plot</title> <!-- page name--> 
     
   </head>
   <body>
     
-    <h1 text-align: center>3D Ragone Plot</h1>
+    <h1 text-align: center>3D Ragone Plot</h1> <!-- page title-->
     <iframe
         id="serviceFrameSend"
         width="700"
@@ -70,11 +72,11 @@
         frameborder="0"
         scrolling="no"
         src="chart.html"
-      >
+        > <!-- iframe contains the plot data from chart.html-->
     </iframe>
 
               
-    <div class="box1">
+    <div class="box1"> <!-- data submission box-->
         
         <h2> Data Submission Form</h2>
         <label for="fname">Name:</label>
@@ -84,7 +86,7 @@
         <input type="submit" value="Submit">
     </div>
 
-    <div class="box2">
+    <div class="box2"> <!-- plot legend box-->
         <h2>Legend: </h2>
         <label for="2000">2000:</label>
         <span class="dot1"></span>
@@ -95,6 +97,5 @@
         <label for="2022">2022:</label>
         <span class="dot4"></span>
     </div>
-    
   </body>
 </html>
