@@ -2,7 +2,7 @@
 <html>
   <head>
     <style>
-        div {
+        .box1 {
             background-color: lightgrey;
             width: 300px;
             border: 5px solid green;
@@ -10,8 +10,22 @@
             margin: 20px;
             float: right;
         }
-
         
+        .box2 {
+            background-color: lightgrey;
+            width: 300px;
+            border: 5px solid red;
+            padding: 50px;
+            margin: 20px;
+        }
+        
+        .dot {
+            height: 15px;
+            width: 15px;
+            background-color: royalblue;
+            border-radius: 50%;
+            display: inline-block;
+        }
     </style>
 
     <title>3D Ragone Plot</title>
@@ -29,9 +43,9 @@
     <h1 text-align: center>3D Ragone Plot</h1>
     
               
-    <div>
+    <div class="box1">
         
-        <h2>Data Submission Form</h2>
+        <h2> Data Submission Form</h2>
         <label for="fname">Name:</label>
         <input type="text" id="fname" name="fname"><br><br>
         <label for="lname">Email:</label>
@@ -48,7 +62,11 @@
         src="chart.html"
       >
       </iframe>
-    
+    <div class="box2">
+        <h2>Legend: </h2>
+        <label for="2000">2000:</label>
+        <span class="dot"></span>
+    </div>
     
   </body>
 </html>
